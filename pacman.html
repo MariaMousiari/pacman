@@ -62,10 +62,10 @@
             this.load.baseURL = 'https://MariaMousiari.github.io/pacman/';
             this.load.crossOrigin = 'anonymous';
 
-            this.load.image('dot', 'assets/dot.png');
+            this.load.image('apple', 'assets/dot.png');
             this.load.image('tiles', 'assets/pacman-tiles.png');
-            this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
-            this.load.tilemap('map', 'assets/pacman-map.json', null, Phaser.Tilemap.TILED_JSON);
+            this.load.spritesheet('Luigi', 'assets/Luigi.png', 32, 32);
+            this.load.tilemap('map', 'assets/pacman1-map.json', null, Phaser.Tilemap.TILED_JSON);
 
             //  Needless to say, graphics (C)opyright Namco
 
@@ -80,7 +80,7 @@
 
             this.dots = this.add.physicsGroup();
 
-            this.map.createFromTiles(7, this.safetile, 'dot', this.layer, this.dots);
+            this.map.createFromTiles(7, this.safetile, 'apple', this.layer, this.dots);
 
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
             this.dots.setAll('x', 6, false, false, 1);
