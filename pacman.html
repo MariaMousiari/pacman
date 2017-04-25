@@ -19,6 +19,13 @@
     </audio>
 
     <script type="text/javascript">
+	    
+   var score = 0;
+    var scoreText;
+        
+    var bonus =0;
+    var bonusText;
+        
 
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 
@@ -43,11 +50,6 @@
         this.current = Phaser.NONE;
         this.turning = Phaser.NONE;
         
-        this.score = 0;
-        this.scoreText = '';
-        
-        this.bonus = 0;
-        this.bonusText  = '';
 
     };
 
@@ -112,24 +114,11 @@
            // this.pacman.play('munch');
             this.move(Phaser.LEFT);
             
-            this.scoreText = game.add.text(0, 500, 'Score: 0', {fontSize: '34px Arial', fill: 'white'});
+  
+            scoreText = game.add.text(5, 0,'Score: 0', {font: '20px Verdana',  fill: '#FFFF00'});
             
-	    lives = game.add.group();
-            game.add.text(game.world.width - 340, 500, 'Lives: ', {fontSize: '34px Arial', fill: 'white'});
             
-	    this.bonusText = game.add.text(360, 500, 'Bonus: 0', {fontSize: '20px Arial', fill: 'white'});
-
-            for (var i = 0; i < 3; i++) 
-		    {
-			var pacman = lives.create(game.world.width - 235 + (30 * i), 517, 'pacman');
-			pacman.anchor.setTo(0.5, 0.5);
-			pacman.angle = 90;
-			pacman.alpha = 0.4;
-		    }	
-		
-	    var sprite=game.add.sprite(18,18,'coin');
-	    sprite.alpha =0;
-	    game.add.tween(sprite).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true, 0, 100000, true);
+            scoreBonus = game.add.text(340, 0,'Bonus: 0', {font: '20px Verdana',  fill: 'orange'});
 	    
         },
 
@@ -249,8 +238,9 @@
 
         eatDot: function (pacman, dot) {
 
-            dot.kill();
-
+            dot.kill(); 
+           score += 1;
+            scoreText.text = 'Score: ' + score;
             if (this.dots.total === 0)
             {
                 this.dots.callAll('revive');
