@@ -20,7 +20,7 @@
 
     <script type="text/javascript">
 	    
-   var score = 0;
+    var score = 0;
     var scoreText;
         
     var bonus =0;
@@ -76,7 +76,7 @@
 
             this.load.image('apple', 'assets/apple.png');
             this.load.image('tiles', 'assets/pacman-tiles.png');
-            this.load.spritesheet('mario', 'assets/mario.png', 32, 32);
+            this.load.spritesheet('Mario', 'assets/Mario.png');
             this.load.tilemap('map', 'assets/pacman-map1.json', null, Phaser.Tilemap.TILED_JSON);
 
             //  Needless to say, graphics (C)opyright Namco
@@ -102,12 +102,12 @@
             this.map.setCollisionByExclusion([this.safetile], true, this.layer);
 
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
-            this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'mario', 0);
+            this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'Mario', 0);
             this.pacman.anchor.set(0.5);
             //this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
 
             this.physics.arcade.enable(this.pacman);
-            this.pacman.body.setSize(16, 16, 0, 0);
+           // this.pacman.body.setSize(16, 16, 0, 0);
 
             this.cursors = this.input.keyboard.createCursorKeys();
 
