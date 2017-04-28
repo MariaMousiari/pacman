@@ -19,13 +19,13 @@
     </audio>
 
     <script type="text/javascript">
-	    
+    /*	    
     var score = 0;
     var scoreText;
         
     var bonus =0;
     var bonusText;
-        
+     */   
 
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 
@@ -115,9 +115,9 @@
             this.move(Phaser.LEFT);
             
   
-            scoreText = game.add.text(5, 0,'Score: 0', {font: '20px Verdana',  fill: '#FFFF00'});
+            /*scoreText = game.add.text(5, 0,'Score: 0', {font: '20px Verdana',  fill: '#FFFF00'});
             
-            scoreBonus = game.add.text(340, 0,'Bonus: 0', {font: '20px Verdana',  fill: 'orange'});
+            scoreBonus = game.add.text(340, 0,'Bonus: 0', {font: '20px Verdana',  fill: 'orange'});*/
 		
 		
      
@@ -242,8 +242,8 @@
         eatDot: function (pacman, dot) {
 
             dot.kill(); 
-            score += 2;
-            scoreText.text = 'Score: ' + score;
+           /* score += 2;
+            scoreText.text = 'Score: ' + score; */
             if (this.dots.total === 0)
             {
                 this.dots.callAll('revive');
