@@ -119,9 +119,6 @@
             
             scoreBonus = game.add.text(340, 0,'Bonus: 0', {font: '20px Verdana',  fill: 'orange'});
 		
-	
-            lives = game.add.group();
-            game.add.text(game.world.width - 360, 0, 'Lives : ', { font: '20px Verdana', fill: 'red' });	
 		
      
 	    }
@@ -245,7 +242,7 @@
         eatDot: function (pacman, dot) {
 
             dot.kill(); 
-           score += 2;
+            score += 2;
             scoreText.text = 'Score: ' + score;
             if (this.dots.total === 0)
             {
