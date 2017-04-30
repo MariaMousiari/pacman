@@ -25,6 +25,9 @@
         
     var bonus =0;
     var bonusText;
+	    
+    var lives = 0;
+    var livesText;
         
 
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
@@ -72,11 +75,11 @@
             //  We need this because the assets are on github pages
             //  Remove the next 2 lines if running locally
             this.load.baseURL = 'https://MariaMousiari.github.io/pacman/';
-            this.load.crossOrigin = 'anonymous';
+            this.load.crossOrigin = 'MariaMousiari';
 
             this.load.image('apple', 'assets/apple.png');
             this.load.image('tiles', 'assets/pacman-tiles.png');
-            this.load.spritesheet('mario', 'assets/mario.png', 32, 32 );
+            this.load.spritesheet('Mario', 'assets/Mario.png', 32, 32 );
             this.load.tilemap('map', 'assets/pacman-map1.json', null, Phaser.Tilemap.TILED_JSON);
 
             //  Needless to say, graphics (C)opyright Namco
@@ -102,7 +105,7 @@
             this.map.setCollisionByExclusion([this.safetile], true, this.layer);
 
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
-            this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'mario', 0);
+            this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'Mario', 0);
             this.pacman.anchor.set(0.5);
             //this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
 
@@ -120,6 +123,7 @@
             scoreBonus = game.add.text(340, 0,'Bonus: 0', {font: '20px Verdana',  fill: 'orange'});
 		
 		
+            livesText = game.add.text(5,465,'Lives: 0',{font: '20px Verdana', fill: 'white'});
      
 	    }
 	    
@@ -242,8 +246,8 @@
         eatDot: function (pacman, dot) {
 
             dot.kill(); 
-           /* score += 2;
-            scoreText.text = 'Score: ' + score; */
+            score += 2;
+            scoreText.text = 'Score: ' + score; 
             if (this.dots.total === 0)
             {
                 this.dots.callAll('revive');
