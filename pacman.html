@@ -20,15 +20,6 @@
  
     <script type="text/javascript">
     	    
-    var score = 0;
-    var scoreTxt;
-        
-    var bonus =0;
-    var bonusTxt;
-	    
-    var lives = 3;
-    var livesTxt;
-        
 
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 
@@ -118,10 +109,6 @@
             this.move(Phaser.LEFT);
             
   
-            scoreTxt = game.add.text(30, 0,'Score: 0', {font: '20px Verdana',  fill: '#FFFF00'});
-            Bonus Txt= game.add.text(190, 0,'Bonus: 0', {font: '20px Verdana',  fill: 'orange'});
-            lifeTxt = game.add.text(330, 0,'Life: 3', {font: '20px Verdana',  fill: '#FFFFFF'});
-
 	    }
 	    
         },
@@ -243,8 +230,7 @@
         eatDot: function (pacman, dot) {
 
             dot.kill(); 
-            score += 2;
-            scoreText.text = 'Score: ' + score; 
+  
             if (this.dots.total === 0)
             {
                 this.dots.callAll('revive');
