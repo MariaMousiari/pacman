@@ -20,13 +20,13 @@
     <script type="text/javascript">
     	    
     var score = 0;
-    var scoreText;
+    var scoreTxt;
         
     var bonus =0;
-    var bonusText;
+    var bonusTxt;
 	    
-    var lives = 0;
-    var livesText;
+    var lives = 3;
+    var livesTxt;
         
 
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
@@ -117,10 +117,10 @@
             this.move(Phaser.LEFT);
             
   
-            scoreText = game.add.text(5, 0,'Score: 0', {font: '20px Verdana',  fill: '#FFFF00'});
-            
-            scoreBonus = game.add.text(340, 0,'Bonus: 0', {font: '20px Verdana',  fill: 'orange'});
-     
+            scoreTxt = game.add.text(30, 0,'Score: 0', {font: '20px Verdana',  fill: '#FFFF00'});
+            Bonus Txt= game.add.text(190, 0,'Bonus: 0', {font: '20px Verdana',  fill: 'orange'});
+            lifeTxt = game.add.text(330, 0,'Life: 3', {font: '20px Verdana',  fill: '#FFFFFF'});
+
 	    }
 	    
         },
