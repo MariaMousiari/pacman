@@ -19,29 +19,38 @@
     </audio>
  
     <script type="text/javascript">
-    	    
+    	
+       var score = 0;
+       var scoreTxt;
+        
+       var bonus =0;   
+       var bonusTxt;
+	    
+       var lives = 3;
+       var livesTxt;
+    
 
-    var game = new Phaser.Game(448, 496, Phaser.AUTO);
+       var game = new Phaser.Game(448, 496, Phaser.AUTO);
 
-    var Pacman = function (game) {
+       var Pacman = function (game) {
 
-        this.map = null;
-        this.layer = null;
-        this.pacman = null;
+         this.map = null;
+         this.layer = null;
+         this.pacman = null;
 
-        this.safetile = 14;
-        this.gridsize = 16;
+         this.safetile = 14;
+         this.gridsize = 16;
 
-        this.speed = 150;
-        this.threshold = 3;
+         this.speed = 150;
+         this.threshold = 3;
 
         this.marker = new Phaser.Point();
         this.turnPoint = new Phaser.Point();
 
-        this.directions = [ null, null, null, null, null ];
-        this.opposites = [ Phaser.NONE, Phaser.RIGHT, Phaser.LEFT, Phaser.DOWN, Phaser.UP ];
+         this.directions = [ null, null, null, null, null ];
+         this.opposites = [ Phaser.NONE, Phaser.RIGHT, Phaser.LEFT, Phaser.DOWN, Phaser.UP ];
 
-        this.current = Phaser.NONE;
+         this.current = Phaser.NONE;
         this.turning = Phaser.NONE;
         
 
