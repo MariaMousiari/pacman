@@ -45,6 +45,9 @@
         
         this.bonus = 0;
         this.bonusText  = '';
+	       
+	this.live = 3;
+	this.liveText  = '';
       
     };
 
@@ -114,20 +117,11 @@
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
 		
-	    this.scoreText = game.add.text(350, 500,'Score: 0', {font: '20px Arial',  fill: 'yellow'});
+	    this.scoreText = game.add.text(10, 0, 'Score: 0', {font: '20px Arial',  fill: '#FFFFFF'});
             
-            this.bonusText = game.add.text(0, 500,'Bonus: 0', {font: '20px Aria;',  fill: 'red'});
+            this.bonusText = game.add.text(180, 0, 'Bonus: 0', {font: '20px Arial',  fill: '#FFFFFF'});
 		
-	    lives = game.add.group();
-            game.add.text(game.world.width - 340, 500, 'Lives : ', { fontSize: '20px Arial', fill: 'white' });
-            
-            for (var i = 0; i < 3; i++) 
-		    {
-			var pacman = lives.create(game.world.width - 235 + (30 * i), 517, 'supermario');
-			pacman.anchor.setTo(0.5, 0.5);
-			pacman.angle = 90;
-			pacman.alpha = 0.4;
-		    }
+	    this.liveText = game.add.text(350,  0, 'Lives: 3', {font: '20px Arial', fill: '#FFFFFF'});
             		
             var sprite = game.add.sprite(417, 465, 'ring');
             game.add.tween(sprite).to( { alpha: 0 }, 40000, Phaser.Easing.Linear.None, true);
@@ -250,6 +244,8 @@
         }, 
 
         eatDot: function (pacman, dot) {
+	    var audio = new Audio('assets/SuperMarioCoin.mp3');
+            audio.play()
 
             dot.kill(); 
             this.score += 2;
@@ -262,6 +258,9 @@
         },
 		
 	eatRing: function (pacman,ring) {
+	    var audio = new Audio('assets/SuperMarioSound.mp3');
+            audio.play()	
+		
 	    ring.kill();
 	    this.bonus += 5;
 	    this.bonusText.text = 'Bonus: ' + this.bonus;
