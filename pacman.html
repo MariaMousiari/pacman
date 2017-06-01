@@ -195,7 +195,7 @@
 
             this.turning = Phaser.NONE;
 
-2            return true;
+            return true;
 
         },
 
@@ -205,7 +205,8 @@
 
             if (direction === Phaser.LEFT || direction === Phaser.UP)
             {
-                speed = -speed;            }
+                speed = -speed;
+            }
 
             if (direction === Phaser.LEFT || direction === Phaser.RIGHT)
             {
@@ -240,7 +241,7 @@
         eatDot: function (pacman, dot) {
 
             dot.kill(); 
-            score += 2;
+            score += 1;
             scoreText.text = 'Score: ' + score;
             if (this.dots.total === 0)
             {
