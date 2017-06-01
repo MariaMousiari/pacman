@@ -73,7 +73,6 @@
             this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.spritesheet('supermario', 'assets/supermario.png', 32, 32);
             this.load.tilemap('map', 'assets/pacman-map1.json', null, Phaser.Tilemap.TILED_JSON);
-	    this.load.image('ring', 'assets/ring.png');
 
             //  Needless to say, graphics (C)opyright Namco
 
@@ -87,16 +86,12 @@
             this.layer = this.map.createLayer('Pacman');
 
             this.dots = this.add.physicsGroup();
-	    this.rings = this.add.physicsGroup();
 
             this.map.createFromTiles(7, this.safetile, 'apple', this.layer, this.dots);
 
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
             this.dots.setAll('x', 6, false, false, 1);
             this.dots.setAll('y', 6, false, false, 1);
-		
-	    this.rings.setAll('x', 6, false, false, 1);
-            this.rings.setAll('y', 6, false, false, 1);	
 
             //  Pacman should collide with everything except the safe tile
             this.map.setCollisionByExclusion([this.safetile], true, this.layer);
@@ -129,8 +124,7 @@
 			pacman.alpha = 0.4;
 		    }
             		
-            var sprite = game.add.sprite(417, 465, 'ring');
-            game.add.tween(sprite).to( { alpha: 0 }, 40000, Phaser.Easing.Linear.None, true);
+            
 	  
 	    }
 	    
@@ -253,23 +247,13 @@
 
             dot.kill(); 
             this.score += 2;
-            this.scoreText.text = 'Score: ' + this.score;
+            this.scoreText.text = 'Score: ' + score;
             if (this.dots.total === 0)
             {
                 this.dots.callAll('revive');
             }
 
         },
-		
-	eatRing: function (pacman,ring) {
-	    ring.kill();
-	    this.bonus += 5;
-	    this.bonusText.text = 'Bonus: ' + this.bonus;
-	    if (this.dots.total === 0) 
-	    {
-	       this.dots.callAll('revive')
-	    }
-	}
 
         update: function () {
           
