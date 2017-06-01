@@ -1,0 +1,18 @@
+﻿Revert "Merge remote-tracking branch 'refs/remotes/ioniodi/master'"
+
+This reverts commit 88b9fcf7e5f9d3cdb9ec5686e72136f095ee0a98, reversing
+changes made to 3f73af9f6724c054a6af6fcb64b61c997b1aaff0.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# You are currently reverting commit fb6143e.
+#
+# Changes to be committed:
+#	modified:   README.md
+#	renamed:    index.html -> pacman.html
+#
+
