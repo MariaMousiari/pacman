@@ -45,7 +45,11 @@
         
        var bonus =0;
        var bonusText;
-       
+	       
+       var lives = 0;
+       var livesText;  
+        
+
     };
 
     Pacman.prototype = {
@@ -109,9 +113,11 @@
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
 		
-	    scoreText = game.add.text(5, 0,'Score: 0', {font: '20px Arial',  fill: 'yellow'});
+	    scoreText = game.add.text(5, 0,'Score: 0', {font: '20px Verdana',  fill: 'yellow'});
             
-            scoreBonus = game.add.text(340, 0,'Bonus: 0', {font: '20px Aria;',  fill: 'red'});
+            scoreBonus = game.add.text(340, 0,'Bonus: 0', {font: '20px Verdana',  fill: 'orange'});
+            
+            livesText = game.add.text(200,465,'Lives: 0',{font: '20px Verdana', fill: 'white'});
             
 	  
 	    }
