@@ -37,14 +37,14 @@
          this.directions = [ null, null, null, null, null ];
          this.opposites = [ Phaser.NONE, Phaser.RIGHT, Phaser.LEFT, Phaser.DOWN, Phaser.UP ];
 
-         this.current = Phaser.NONE;
+        this.current = Phaser.NONE;
         this.turning = Phaser.NONE;
 	       
-	var score = 0;
-        var scoreText;
+	this.score = 0;
+        this.scoreText;
         
-       var bonus = 0;
-       var bonusText;     
+       this.bonus = 0;
+       this.bonusText;     
 
     };
 
@@ -110,9 +110,9 @@
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
 		
-	    scoreText = game.add.text(350, 500,'Score: 0', {font: '20px Arial',  fill: 'yellow'});
+	    this.scoreText = game.add.text(350, 500,'Score: 0', {font: '20px Arial',  fill: 'yellow'});
             
-            scoreBonus = game.add.text(0, 500,'Bonus: 0', {font: '20px Arial',  fill: 'orange'});
+            this.scoreBonus = game.add.text(0, 500,'Bonus: 0', {font: '20px Arial',  fill: 'orange'});
             
             lives = game.add.group();
             game.add.text(game.world.width - 340, 500, 'Lives : ', { fontSize: '20px Arial', fill: 'white' });
