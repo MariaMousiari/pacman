@@ -127,16 +127,8 @@
             
             this.scoreBonus = game.add.text(180, 0,'Bonus: 0', {font: '20px Arial',  fill: 'orange'});
             
-            lives = game.add.group();
-            game.add.text(game.world.width - 340, 500, 'Lives : ', { fontSize: '20px Arial', fill: 'white' });
-            
-            for (var i = 0; i < 3; i++) 
-		    {
-			var pacman = lives.create(game.world.width - 235 + (30 * i), 517, 'monster');
-			pacman.anchor.setTo(0.5, 0.5);
-			pacman.angle = 90;
-			pacman.alpha = 0.4;
-		    }
+            this.scoreLive = game.add.text(350, 0, 'Lives : ', { fontSize: '20px Arial', fill: 'white' });
+
 	    var sprite = game.add.sprite(317, 465, 'strawberry');
 	    var sprite1 = game.add.sprite(87, 265, 'strawberry');
 	    var sprite2 = game.add.sprite(320, 192, 'strawberry');
