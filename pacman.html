@@ -124,7 +124,10 @@
             this.scoreBonus = game.add.text(180, 0,'Bonus: 0', {font: '20px Arial',  fill: 'orange'});
             
             this.livesText = game.add.text(350, 0, 'Lives: 3', { fontSize: '20px Arial', fill: 'white' });
- 
+  
+            var sprite = game.add.sprite(317, 465, 'ring');
+	    
+ 	   game.add.tween(sprite).to( { alpha: 0 }, 30000, Phaser.Easing.Linear.None, true); 
  	    
         },
 
