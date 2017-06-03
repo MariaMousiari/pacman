@@ -77,7 +77,9 @@
             this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.spritesheet('supermario', 'assets/mario.png', 32, 32);
             this.load.tilemap('map', 'assets/pacman-map1.json', null, Phaser.Tilemap.TILED_JSON);
-	    this.load.image('ring', 'assets/ring.png');
+	    this.load.image('ring', 'assets/ring.png'); 
+            this.load.image('strawberry', 'assets/strawberry.png');
+	    
 
             //  Needless to say, graphics (C)opyright Namco
 
@@ -92,9 +94,11 @@
 
             this.dots = this.add.physicsGroup();
 	    this.rings = this.add.physicsGroup();
+	    this.strawberry = this.add.physicsGroup();
 
             this.map.createFromTiles(7, this.safetile, 'apple', this.layer, this.dots);
             this.map.createFromTiles(35, this.safetile, 'ring', this.layer, this.rings);
+	     this.map.createFromTiles(35, this.safetile, 'strawberry', this.layer, this.rings);
             
 	    //  The dots will need to be offset by 6px to put them back in the middle of the grid
             this.dots.setAll('x', 6, false, false, 1);
@@ -123,11 +127,26 @@
             
             this.scoreBonus = game.add.text(180, 0,'Bonus: 0', {font: '20px Arial',  fill: 'orange'});
             
-            this.livesText = game.add.text(350, 0, 'Lives: 3', { fontSize: '20px Arial', fill: 'white' });
-  
-            var sprite = game.add.sprite(317, 465, 'ring');
+            lives = game.add.group();
+            game.add.text(game.world.width - 340, 500, 'Lives : ', { fontSize: '20px Arial', fill: 'white' });
+            
+            for (var i = 0; i < 3; i++) 
+		    {
+			var pacman = lives.create(game.world.width - 235 + (30 * i), 517, 'monster');
+			pacman.anchor.setTo(0.5, 0.5);
+			pacman.angle = 90;
+			pacman.alpha = 0.4;
+		    }
+	    var sprite = game.add.sprite(317, 465, 'strawberry');
+	    var sprite1 = game.add.sprite(87, 265, 'strawberry');
+	    var sprite2 = game.add.sprite(320, 192, 'strawberry');
+            
+		
 	    
- 	   game.add.tween(sprite).to( { alpha: 0 }, 30000, Phaser.Easing.Linear.None, true); 
+	    game.add.tween(sprite).to( { alpha: 0 }, 30000, Phaser.Easing.Linear.None, true);
+	    game.add.tween(sprite1).to( { alpha: 0 }, 50000, Phaser.Easing.Linear.None, true);
+            game.add.tween(sprite2).to( { alpha: 0 }, 70000, Phaser.Easing.Linear.None, true);
+  
  	    
         },
 
@@ -282,6 +301,7 @@
           
             this.physics.arcade.collide(this.pacman, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
+	    this.physics.arcade.overlap(this.pacman, this.rings, this.eatRing, null, this);
 
             this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
