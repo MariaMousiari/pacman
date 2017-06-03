@@ -78,7 +78,7 @@
             this.load.spritesheet('supermario', 'assets/mario.png', 32, 32);
             this.load.tilemap('map', 'assets/pacman-map1.json', null, Phaser.Tilemap.TILED_JSON);
 	    this.load.image('ring', 'assets/ring.png'); 
-            this.load.image('strawberry', 'assets/strawberry.png');
+ 
 	    
 
             //  Needless to say, graphics (C)opyright Namco
@@ -125,9 +125,9 @@
 		
 	    this.scoreText = game.add.text(10, 0,'Score: 0', {font: '20px Arial',  fill: 'yellow'});
             
-            this.scoreBonus = game.add.text(180, 0,'Bonus: 0', {font: '20px Arial',  fill: 'orange'});
+            this.BonusText = game.add.text(180, 0,'Bonus: 0', {font: '20px Arial',  fill: 'orange'});
             
-            this.scoreLive = game.add.text(350, 0, 'Lives : 3', { fontSize: '20px Arial', fill: 'white' });
+            this.LiveText = game.add.text(350, 0, 'Lives : 3', { fontSize: '20px Arial', fill: 'white' });
 
 	  
   
