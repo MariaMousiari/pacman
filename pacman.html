@@ -117,7 +117,7 @@ var sprite = game.add.sprite(417, 465, 'str');
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
             this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'supermario', 0);
             this.pacman.anchor.set(0.5);
-            this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
+            //this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
 
             this.physics.arcade.enable(this.pacman);
             this.pacman.body.setSize(16, 16, 0, 0);
@@ -133,7 +133,7 @@ var sprite = game.add.sprite(417, 465, 'str');
             
             this.LiveText = game.add.text(350, 0, 'Lives: 3', { fontSize: '20px Arial', fill: 'white' });
 
-	   var sprite = game.add.sprite(417, 465, 'ring');
+	   var sprite = game.add.sprite(10, 10, 'ring');
 	    
 	   game.add.tween(sprite).to( { alpha: 0 }, 30000, Phaser.Easing.Linear.None, true);
   
