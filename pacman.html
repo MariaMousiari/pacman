@@ -74,7 +74,7 @@
 
             this.load.image('apple', 'assets/apple.png');
             this.load.image('tiles', 'assets/pacman-tiles.png');
-            this.load.spritesheet('supermario', 'assets/supermario.png', 32, 32);
+            this.load.spritesheet('mario', 'assets/mario.png', 32, 32);
             this.load.tilemap('map', 'assets/pacman-map1.json', null, Phaser.Tilemap.TILED_JSON);
 	    this.load.image('ring', 'assets/ring.png'); 
 	    
@@ -107,7 +107,7 @@
             this.map.setCollisionByExclusion([this.safetile], true, this.layer);
 
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
-            this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'supermario', 0);
+            this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'mario', 0);
             this.pacman.anchor.set(0.5);
             this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
 
